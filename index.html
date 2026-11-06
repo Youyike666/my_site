@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>姚煜坤 - 个人介绍</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%231a365d'/><text x='50' y='65' font-size='40' text-anchor='middle' fill='%23f97316' font-weight='bold'>姚</text></svg>">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #1a365d;
+    --navy-light: #2c5282;
+    --orange: #f97316;
+    --orange-light: #fb923c;
+    --cream: #fafaf7;
+    --dark: #1a202c;
+    --gray: #4a5568;
+    --light-gray: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== Hero 区域 ===== */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/JPXNbtyEsoHQE8xHgDCcpKqWn9d') center/cover no-repeat;
+    filter: brightness(0.55);
+    transform: scale(1.05);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 0 24px;
+  }
+
+  .hero-greeting {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+
+  .hero-name {
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  }
+
+  .hero-name span {
+    color: var(--orange);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto;
+    opacity: 0.92;
+    line-height: 1.8;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: white;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
+  }
+
+  /* ===== 通用区块 ===== */
+  section {
+    padding: 100px 24px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: var(--orange);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: var(--navy);
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+
+  /* ===== 关于我 ===== */
+  .about {
+    background: white;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.9;
+  }
+
+  .info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .info-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .info-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .info-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--navy);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .info-card-label {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .info-card-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* ===== 篮球热爱 ===== */
+  .basketball {
+    background: var(--navy);
+    color: white;
+  }
+
+  .basketball .section-title {
+    color: white;
+  }
+
+  .basketball-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .basketball-image {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .basketball-image img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+
+  .basketball-text p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 20px;
+    line-height: 1.9;
+  }
+
+  .basketball-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 32px;
+  }
+
+  .stat-item {
+    text-align: left;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+  }
+
+  /* ===== 家乡 ===== */
+  .hometown {
+    background: white;
+  }
+
+  .hometown-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hometown-image {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(26,54,93,0.15);
+  }
+
+  .hometown-image img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+  }
+
+  .hometown-text p {
+    font-size: 1.05rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.9;
+  }
+
+  .hometown-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .tag {
+    padding: 8px 18px;
+    background: var(--cream);
+    border: 1px solid var(--light-gray);
+    border-radius: 100px;
+    font-size: 0.9rem;
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  /* ===== 大学 ===== */
+  .university {
+    position: relative;
+    color: white;
+  }
+
+  .university-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/GwoMbMMt5o5LPxxhyRxcuL7knid') center/cover no-repeat;
+    filter: brightness(0.45);
+    z-index: 0;
+  }
+
+  .university .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .university .section-title {
+    color: white;
+  }
+
+  .university-text {
+    max-width: 600px;
+  }
+
+  .university-text p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 20px;
+    line-height: 1.9;
+  }
+
+  .university-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .feature-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .feature-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  /* ===== 联系我 ===== */
+  .contact {
+    background: white;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  .contact-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 36px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(26,54,93,0.12);
+  }
+
+  .contact-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--orange);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-info-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .contact-info-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    word-break: break-all;
+  }
+
+  /* ===== 结尾 ===== */
+  .footer {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 60px 24px;
+  }
+
+  .footer-name {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+
+  .footer-name span {
+    color: var(--orange);
+  }
+
+  .footer-quote {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+  }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 768px) {
+    section { padding: 70px 20px; }
+    .about-grid,
+    .basketball-grid,
+    .hometown-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .university-features {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .basketball-stats {
+      gap: 24px;
+    }
+    .stat-number {
+      font-size: 2rem;
+    }
+    .info-cards {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    /* 移动端字体优化 */
+    .section-label {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+    }
+    .info-card-label {
+      font-size: 0.85rem;
+    }
+    .stat-label,
+    .feature-desc {
+      font-size: 0.9rem;
+    }
+    .contact-cards {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .contact-card {
+      padding: 24px 20px;
+    }
+    .contact-info-value {
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Hero 区域 ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-greeting">HELLO, 我是</div>
+    <h1 class="hero-name">姚<span>煜坤</span></h1>
+    <p class="hero-tagline">来自内蒙古大草原的阳光少年，在三亚的海风里追着篮球梦</p>
+  </div>
+  <div class="hero-scroll">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== 关于我 ===== -->
+<section class="about">
+  <div class="container">
+    <div class="section-label">ABOUT ME</div>
+    <h2 class="section-title">关于我</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>大家好！我是姚煜坤，一个从内蒙古乌兰察布来到海南三亚求学的大男孩。</p>
+        <p>从辽阔的草原到碧海蓝天的海岛，跨越了半个中国，只为追逐更好的自己。性格开朗、热爱运动，篮球是我生活中不可缺少的一部分。</p>
+        <p>喜欢在球场上挥洒汗水的感觉，享受和队友并肩作战的每一个瞬间。相信努力和坚持，总会有收获。</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div class="info-card-label">姓名</div>
+          <div class="info-card-value">姚煜坤</div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <div class="info-card-label">性别</div>
+          <div class="info-card-value">男</div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="info-card-label">家乡</div>
+          <div class="info-card-value">内蒙古乌兰察布</div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <div class="info-card-label">学校</div>
+          <div class="info-card-value">三亚学院</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 篮球热爱 ===== -->
+<section class="basketball">
+  <div class="container">
+    <div class="section-label">MY PASSION</div>
+    <h2 class="section-title">我的热爱</h2>
+    <div class="basketball-grid">
+      <div class="basketball-image">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/JPXNbtyEsoHQE8xHgDCcpKqWn9d" alt="户外篮球场">
+      </div>
+      <div class="basketball-text">
+        <p>篮球，是我从小到大最好的伙伴。</p>
+        <p>从初中第一次接触篮球开始，就再也放不下了。球场上的每一次奔跑、每一次投篮、每一次和队友的默契配合，都让我感到无比快乐和充实。</p>
+        <p>篮球教会我的不仅仅是运动技巧，更是团队合作、永不放弃的精神。在三亚的阳光下，我依然保持着对篮球的热爱，每周都会约上球友打几场。</p>
+        <div class="basketball-stats">
+          <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">年球龄</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3v3</div>
+            <div class="stat-label">最爱的赛制</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">SG</div>
+            <div class="stat-label">场上位置</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 我的家乡 ===== -->
+<section class="hometown">
+  <div class="container">
+    <div class="section-label">MY HOMETOWN</div>
+    <h2 class="section-title">我的家乡</h2>
+    <div class="hometown-layout">
+      <div class="hometown-image">
+        <img src="https://media.doubao.com/space/api/box/stream/download/all_by_mount_point/K7sibziISoMFuVxvJggc1Ge2nVg" alt="乌兰察布草原日落">
+      </div>
+      <div class="hometown-text">
+        <p>我的家乡在内蒙古自治区乌兰察布市，那里有辽阔无垠的大草原，有风吹草低见牛羊的诗意。</p>
+        <p>夏天的草原绿草如茵，野花遍地，牛羊成群；秋天则是一片金黄，美不胜收。从小在草原上长大，养成了我豪爽、直率的性格，也让我对大自然充满敬畏和热爱。</p>
+        <p>虽然现在在三亚上学，但家乡的草原永远是我心中最柔软的牵挂。</p>
+        <div class="hometown-tags">
+          <span class="tag">草原风光</span>
+          <span class="tag">牛羊成群</span>
+          <span class="tag">蓝天碧草</span>
+          <span class="tag">豪爽热情</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 我的大学 ===== -->
+<section class="university">
+  <div class="university-bg"></div>
+  <div class="container">
+    <div class="section-label">MY UNIVERSITY</div>
+    <h2 class="section-title">我的大学</h2>
+    <div class="university-text">
+      <p>现在的我，就读于美丽的三亚学院。</p>
+      <p>坐落在海南岛最南端的三亚学院，被青山环绕，绿树成荫，空气中弥漫着热带植物的清香。从北方的草原来到南方的海岛，这是一次全新的体验和成长。</p>
+      <p>在这里，我不仅收获了知识，更结识了来自全国各地的朋友，开启了人生新的篇章。</p>
+    </div>
+    <div class="university-features">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="feature-title">校园环境</div>
+        <div class="feature-desc">青山环抱，绿树成荫，热带风光四季如画</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <div class="feature-title">多元文化</div>
+        <div class="feature-desc">来自全国各地的同学，多元文化交融碰撞</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div class="feature-title">成长蜕变</div>
+        <div class="feature-desc">从草原到海岛，不断突破自我，追逐梦想</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 联系我 ===== -->
+<section class="contact">
+  <div class="container">
+    <div class="section-label">CONTACT</div>
+    <h2 class="section-title">联系我</h2>
+    <p style="font-size:1.05rem;color:var(--gray);max-width:600px;margin-bottom:40px;line-height:1.9;">
+      很高兴认识你！如果你想和我交朋友、约球，或者有任何事情想聊，随时通过以下方式找到我。
+    </p>
+    <div class="contact-cards">
+      <a href="tel:19254683530" class="contact-card">
+        <div class="contact-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-info-label">电话 / 微信</div>
+          <div class="contact-info-value">19254683530</div>
+        </div>
+      </a>
+      <a href="mailto:3972674448@qq.com" class="contact-card">
+        <div class="contact-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-info-label">邮箱</div>
+          <div class="contact-info-value">3972674448@qq.com</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 结尾 ===== -->
+<footer class="footer">
+  <div class="footer-name">姚<span>煜坤</span></div>
+  <p class="footer-quote">热爱篮球，热爱生活，永远年轻，永远热血</p>
+</footer>
+
+</body>
+</html>
+<!-- （注：内容由AI生成） -->
